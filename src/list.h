@@ -8,16 +8,19 @@ public:
     struct Node {
         int data;
         Node* next;
+
+        // Constructor to initialize node with data
+        Node(int val) : data(val), next(nullptr) {}
     };
 
-    LinkedList();                        
-    LinkedList(const LinkedList& other); 
-    LinkedList& operator=(LinkedList rhs); 
-    ~LinkedList();                       
+    LinkedList();
+    LinkedList(const LinkedList& other);
+    LinkedList& operator=(LinkedList rhs);
+    ~LinkedList();
 
-    void prepend(int value);              
-    void append(int value);               
-    int  removeFront();                   
+    void prepend(int value);
+    void append(int value);
+    int  removeFront();
     bool isEmpty() const;
     Node* getHead() const { return head; }
     void setHead(Node* newHead) { head = newHead; }
@@ -27,8 +30,9 @@ public:
 private:
     Node* head = nullptr;
 
-    /* utility to deep-copy a chain, returns new head */
+    // utility to deep-copy a chain, returns new head
     static Node* deepCopy(Node* src);
-    /* utility to free chain starting at given node */
+
+    // utility to free chain starting at given node
     static void freeChain(Node* n);
 };
